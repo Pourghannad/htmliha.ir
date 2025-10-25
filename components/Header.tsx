@@ -1,7 +1,8 @@
+import {Button} from '@heroui/button'; 
 export default function Header() {
   return (
       <header>
-        htmliha
+        <Button>{'ورود / ثبت‌نام'}</Button>
       </header>
   );
 }
