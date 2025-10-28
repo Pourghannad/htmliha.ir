@@ -11,8 +11,7 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)"],
-        mono: ["var(--font-mono)"],
+        vazir: ["var(--font-vazir)"],
       },
     },
   },
