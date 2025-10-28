@@ -1,4 +1,0 @@
-- dashboard for iranian front-end developers!
-- last news about front-end
-- jobinja and jobvision and ... crawler for finding front-end jobs.
-- next js and express js and mongo db
