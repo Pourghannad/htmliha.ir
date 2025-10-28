@@ -1,6 +1,5 @@
-import { Link } from "@heroui/link";
-
 import { Head } from "./head";
+
 import Footer from "@/components/Footer";
 
 export default function DefaultLayout({
