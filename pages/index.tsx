@@ -1,8 +1,10 @@
+import Card from "@/components/Card";
 import DefaultLayout from "@/layouts/default";
 
 export const getServerSideProps = async () => {
+  const today = new Date();
   const res = await fetch(
-    `https://newsapi.org/v2/everything?q=javascript&pageSize=20&sortBy=publishedAt&apiKey=${process.env.NEWS_API_TOKEN}&sortBy=popularity&language=en`
+    `https://newsapi.org/v2/everything?q=+javascript&from=2025-12-26&to=2025-12-29pageSize=10&sortBy=publishedAt&apiKey=${process.env.NEWS_API_TOKEN}&language=en`
   );
   const data = await res.json();
 
@@ -31,17 +33,14 @@ export default function IndexPage({ data }: IndexProps) {
   return (
     <DefaultLayout>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        HTMLIHA
         {data?.articles?.map((item: IArticles, index: number) => {
-          return (
-            <div key={index}>
-              <h4>
-                <a href={item.url} rel="noreferrer" target="_blank">
-                  {item.title}
-                </a>
-              </h4>
-            </div>
-          );
+          if (
+            !item.url.includes("git.") &&
+            !item.url.includes(".jp") &&
+            !item.url.includes("dw.com")
+          ) {
+            return <Card key={index} url={item.url} title={item.title} />;
+          }
         })}
       </section>
     </DefaultLayout>
