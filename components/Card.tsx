@@ -33,7 +33,7 @@ export default function Card({
             <span className="text-2xl font-bold line-clamp-1 whitespace-pre text-ellipsis">
               {title}
             </span>
-            <span className="text-sm whitespace-normal">{description}</span>
+            <p className="text-sm whitespace-normal">{description}</p>
           </div>
         </a>
       </h4>

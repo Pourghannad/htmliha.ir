@@ -4,6 +4,7 @@ export default function Header() {
   return (
     <header className="w-full flex items-center justify-between py-3">
       <a
+        aria-label="htmliha source page on github"
         href="http://github.com/pourghannad/htmliha.ir"
         rel="noreferrer"
         target="_blank"
