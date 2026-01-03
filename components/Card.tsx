@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { IArticles } from "@/types";
 
 interface CardProps {
@@ -19,7 +21,7 @@ export default function Card({
         >
           {urlToImage && (
             <div className="absolute overflow-hidden w-[150px] top-0 left-0 h-full">
-              <img
+              <Image
                 alt={title}
                 className="w-[400px] object-contain max-w-[400px] h-[400px] absolute top-12 -left-44 bottom-0 m-auto"
                 crossOrigin="anonymous"
