@@ -10,6 +10,7 @@ export const Head = () => {
       <meta key="title" content={siteConfig.name} property="og:title" />
       <meta content={siteConfig.description} property="og:description" />
       <meta content={siteConfig.description} name="description" />
+      <meta content="width=device-width, initial-scale=1.0" name="viewport" />
       <link
         href="/favicon-96x96.png"
         rel="icon"
@@ -25,12 +26,6 @@ export const Head = () => {
       />
       <meta content="Htmliha" name="apple-mobile-web-app-title" />
       <link href="/site.webmanifest" rel="manifest" />
-
-      <meta
-        key="viewport"
-        content="viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-        name="viewport"
-      />
     </NextHead>
   );
 };
