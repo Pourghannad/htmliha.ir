@@ -22,7 +22,9 @@ export default function Card({
               <img
                 alt={title}
                 className="w-[400px] object-contain max-w-[400px] h-[400px] absolute top-12 -left-44 bottom-0 m-auto"
+                crossOrigin="anonymous"
                 height={400}
+                referrerPolicy="no-referrer"
                 src={urlToImage}
                 width={400}
               />
