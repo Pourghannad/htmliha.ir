@@ -22,10 +22,10 @@ export default function Card({
             <div className="absolute overflow-hidden w-[150px] top-0 left-0 h-full">
               <img
                 alt={title}
-                className="w-[350px] object-contain max-w-[350px] h-[350px] absolute top-0 -left-1/3 bottom-0 m-auto"
-                height={350}
+                className="w-[400px] object-contain max-w-[400px] h-[400px] absolute top-0 -left-1/3 bottom-0 m-auto"
+                height={400}
                 src={urlToImage}
-                width={350}
+                width={400}
               />
             </div>
           )}

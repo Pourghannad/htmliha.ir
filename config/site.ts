@@ -9,17 +9,7 @@ export const siteConfig = {
       href: "/",
     },
   ],
-  navMenuItems: [
-    {
-      label: "Login",
-      href: "/login",
-    },
-    {
-      label: "Logout",
-      href: "/logout",
-    },
-  ],
   links: {
-    github: "https://github.com/pourghannad",
+    github: "https://github.com/pourghannad/htmliha.ir",
   },
 };
