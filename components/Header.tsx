@@ -12,7 +12,7 @@ export default function Header() {
       >
         <GithubIcon size={32} />
       </Link>
-      <h1 className="text-3xl flex gap-3 items-center font-bold">
+      <h1 className={`text-3xl gap-3 flex items-center font-bold`}>
         {"اچ‌تی‌ام‌الی‌ها"}
         <Logo />
       </h1>
