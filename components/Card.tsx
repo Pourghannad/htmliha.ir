@@ -2,18 +2,17 @@ import { IArticles } from "@/types";
 
 interface CardProps {
   data: IArticles;
-  key: number;
 }
 
 export default function Card({
   data: { url, description, title, urlToImage },
-  key,
 }: CardProps) {
   return (
-    <article key={key} className="w-full">
+    <article className="w-full">
       <h4>
         <a
-          className={`flex relative ${urlToImage ? "pl-[165px]" : ""} bg-gray-900 visited:bg-[#1e082e] w-full hover:bg-black transition-background visited:text-purple-600 p-2 overflow-hidden`}
+          aria-label={title}
+          className={`flex relative ${urlToImage ? "pl-[165px]" : ""} bg-gray-900 visited:bg-[#1e082e] w-full hover:bg-[#121212] transition-background duration-150 visited:text-purple-600 p-2 overflow-hidden`}
           href={url}
           rel="noreferrer"
           target="_blank"
@@ -22,7 +21,7 @@ export default function Card({
             <div className="absolute overflow-hidden w-[150px] top-0 left-0 h-full">
               <img
                 alt={title}
-                className="w-[400px] object-contain max-w-[400px] h-[400px] absolute top-0 -left-1/3 bottom-0 m-auto"
+                className="w-[400px] object-contain max-w-[400px] h-[400px] absolute top-12 -left-44 bottom-0 m-auto"
                 height={400}
                 src={urlToImage}
                 width={400}
