@@ -6,22 +6,35 @@ interface CardProps {
 }
 
 export default function Card({
-  data: { url, description, title },
+  data: { url, description, title, urlToImage },
   key,
 }: CardProps) {
   return (
     <article key={key} className="w-full">
       <h4>
         <a
-          className="flex flex-col bg-gray-900 visited:bg-[#1e082e] w-full hover:bg-black transition-background visited:text-purple-600 p-4"
+          className={`flex relative ${urlToImage ? "pl-[165px]" : ""} bg-gray-900 visited:bg-[#1e082e] w-full hover:bg-black transition-background visited:text-purple-600 p-2 overflow-hidden`}
           href={url}
           rel="noreferrer"
           target="_blank"
         >
-          <span className="text-2xl font-bold line-clamp-1 whitespace-pre text-ellipsis">
-            {title}
-          </span>
-          <span className="text-sm whitespace-normal">{description}</span>
+          {urlToImage && (
+            <div className="absolute overflow-hidden w-[150px] top-0 left-0 h-full">
+              <img
+                alt={title}
+                className="w-[350px] object-contain max-w-[350px] h-[350px] absolute top-0 -left-1/3 bottom-0 m-auto"
+                height={350}
+                src={urlToImage}
+                width={350}
+              />
+            </div>
+          )}
+          <div className="flex-col max-w-full">
+            <span className="text-2xl font-bold line-clamp-1 whitespace-pre text-ellipsis">
+              {title}
+            </span>
+            <span className="text-sm whitespace-normal">{description}</span>
+          </div>
         </a>
       </h4>
     </article>
