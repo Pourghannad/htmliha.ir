@@ -6,6 +6,7 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
 
 export interface IndexProps {
   data: any;
+  error: boolean;
 }
 
 export interface IArticles {
