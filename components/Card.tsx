@@ -14,13 +14,13 @@ export default function Card({
       <h4>
         <a
           aria-label={title}
-          className={`flex relative ${urlToImage ? "pl-[165px]" : ""} bg-gray-900 visited:bg-[#1e082e] w-full hover:bg-[#121212] transition-background duration-150 visited:text-purple-600 p-2 overflow-hidden`}
+          className={`flex relative ${urlToImage ? "pl-[165px]" : ""} bg-gray-900 visited:bg-[#1e082e] w-full hover:bg-[#121212] transition-background duration-150 visited:text-purple-600 p-2 overflow-hidden group`}
           href={url}
           rel="noreferrer"
           target="_blank"
         >
           {urlToImage && (
-            <div className="absolute overflow-hidden w-[150px] top-0 left-0 h-full">
+            <div className="absolute overflow-hidden w-[150px] top-0 left-0 h-full max-sm:top-3.5">
               <Image
                 alt={title}
                 className="w-[400px] object-contain max-w-[400px] h-[400px] absolute top-12 -left-44 bottom-0 m-auto"
@@ -33,8 +33,10 @@ export default function Card({
             </div>
           )}
           <div className="flex-col max-w-full">
-            <span className="text-2xl font-bold line-clamp-1 whitespace-pre text-ellipsis">
-              {title}
+            <span className="text-2xl h-9 relative font-bold line-clamp-1 whitespace-pre">
+              <span className="absolute group-hover:animate-wiggle">
+                {title}
+              </span>
             </span>
             <p className="text-sm whitespace-normal">{description}</p>
           </div>
