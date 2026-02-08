@@ -34,7 +34,9 @@ export default function Card({
           )}
           <div className="flex-col max-w-full">
             <span className="text-2xl h-9 relative font-bold line-clamp-1 whitespace-pre">
-              <span className="absolute group-hover:animate-title will-change-transform">
+              <span
+                className={`absolute  ${title.length > 48 ? "group-hover:animate-title" : ""} will-change-transform`}
+              >
                 {title}
               </span>
             </span>
