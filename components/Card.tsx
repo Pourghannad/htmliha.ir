@@ -38,7 +38,9 @@ export default function Card({
                 {title}
               </span>
             </span>
-            <p className="text-sm whitespace-normal">{description}</p>
+            <p className="text-sm whitespace-normal">
+              {description.replace(/&#39;/g, "'").replace(/&amp;/g, "&")}
+            </p>
           </div>
         </a>
       </h4>
