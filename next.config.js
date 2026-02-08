@@ -36,13 +36,15 @@ const nextConfig = {
       },{
         protocol: "https",
         hostname: "hackread.com",
-      },{
+      },
+      {
         protocol: "https",
         hostname: "hackread.com",
       },
-
-
-      
+      {
+        protocol: "https",
+        hostname: "www.bleepingcomputer.com",
+      },
     ],
   },
 };

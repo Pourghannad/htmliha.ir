@@ -1,3 +1,17 @@
+@theme {
+  --animate-title: title 15s infinite;
+}
+
+  @keyframes title {
+    0%,
+      100% {
+      transform: translate3d(0px, 0px, 0px);
+    }
+    50% {
+          transform: translate3d(-50%, 0px, 0px);
+    }
+  }
+
 @import "tailwindcss";
 
 @config "../tailwind.config.js"
