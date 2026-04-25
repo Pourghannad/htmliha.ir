@@ -1,18 +1,11 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import clsx from "clsx";
 
-import { vazirFont } from "@/config/fonts";
-
 export default function Document() {
   return (
     <Html lang="en">
       <Head />
-      <body
-        className={clsx(
-          "min-h-screen bg-background antialiased",
-          vazirFont.className,
-        )}
-      >
+      <body className={clsx("min-h-screen bg-background antialiased",)}>
         <Main />
         <NextScript />
       </body>
