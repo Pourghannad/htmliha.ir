@@ -45,6 +45,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "www.bleepingcomputer.com",
       },
+      {
+        protocol: "https",
+        hostname: "media.thenextweb.com",
+      },
     ],
   },
 };

@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { AnimatedTitle } from "./AnimatedTitle";
+
 import { IArticles } from "@/types";
 
 interface CardProps {
@@ -33,13 +35,7 @@ export default function Card({
             </div>
           )}
           <div className="flex-col max-w-full">
-            <span className="text-2xl h-9 relative font-bold line-clamp-1 whitespace-pre">
-              <span
-                className={`absolute  ${title.length > 48 ? "group-hover:animate-title" : ""} will-change-transform`}
-              >
-                {title}
-              </span>
-            </span>
+            <AnimatedTitle>{title}</AnimatedTitle>
             <p className="text-sm whitespace-normal">
               {description.replace(/&#39;/g, "'").replace(/&amp;/g, "&")}
             </p>
