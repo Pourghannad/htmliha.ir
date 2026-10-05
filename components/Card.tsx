@@ -16,27 +16,27 @@ export default function Card({
       <h4>
         <a
           aria-label={title}
-          className={`flex relative ${urlToImage ? "pl-[165px]" : ""} bg-gray-900 visited:bg-[#1e082e] w-full hover:bg-[#121212] transition-background duration-150 visited:text-purple-600 p-2 overflow-hidden group`}
+          className={`flex flex-col sm:flex-row relative bg-gray-900 visited:bg-[#1e082e] w-full hover:bg-[#121212] transition-background duration-150 visited:text-purple-600 overflow-hidden group`}
           href={url}
           rel="noreferrer"
           target="_blank"
         >
           {urlToImage && (
-            <div className="absolute overflow-hidden w-[150px] top-0 left-0 h-full max-sm:top-3.5">
+            <div className="relative w-full sm:w-[120px] md:w-[150px] h-[120px] sm:h-auto sm:min-h-[100px] md:min-h-[120px] flex-shrink-0 overflow-hidden">
               <Image
                 alt={title}
-                className="w-[400px] object-contain max-w-[400px] h-[400px] absolute top-12 -left-44 bottom-0 m-auto"
+                className="object-cover w-full h-full"
                 crossOrigin="anonymous"
-                height={400}
+                fill
                 referrerPolicy="no-referrer"
                 src={urlToImage}
-                width={400}
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 120px, 150px"
               />
             </div>
           )}
-          <div className="flex-col max-w-full">
+          <div className="flex-col max-w-full p-3 sm:p-4">
             <AnimatedTitle>{title}</AnimatedTitle>
-            <p className="text-sm whitespace-normal">
+            <p className="text-xs sm:text-sm whitespace-normal mt-1 sm:mt-2 line-clamp-3 sm:line-clamp-4">
               {description.replace(/&#39;/g, "'").replace(/&amp;/g, "&")}
             </p>
           </div>

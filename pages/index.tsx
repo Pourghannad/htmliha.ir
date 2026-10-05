@@ -19,11 +19,11 @@ export default function IndexPage({ data, error }: IndexProps) {
   return (
     <DefaultLayout>
       {error ? (
-        <section className="flex justify-center items-center font-extrabold text-4xl">
+        <section className="flex justify-center items-center font-extrabold text-2xl sm:text-3xl md:text-4xl py-12 sm:py-16">
           {"Error :("}
         </section>
       ) : (
-        <section className="flex flex-col items-center justify-center gap-6 py-8 md:py-10">
+        <section className="flex flex-col items-center justify-center gap-3 sm:gap-4 md:gap-6 py-4 sm:py-6 md:py-10">
           {data?.articles?.map((item: IArticles, index: number) => {
             return <Card key={index} data={item} />;
           })}

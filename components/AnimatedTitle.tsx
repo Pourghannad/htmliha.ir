@@ -11,6 +11,7 @@ export const AnimatedTitle = ({ children }: AnimatedTitleProps) => {
   const textSpanRef = useRef<HTMLSpanElement>(null);
 
   const [isHovered, setIsHovered] = useState(false);
+  const [isTouch, setIsTouch] = useState(false);
 
   const [transformValue, setTransformValue] = useState(0);
 
@@ -31,6 +32,18 @@ export const AnimatedTitle = ({ children }: AnimatedTitleProps) => {
   }, [updateTransform]);
 
   const handleMouseLeave = useCallback(() => {
+    setIsHovered(false);
+    setTransformValue(0);
+  }, []);
+
+  const handleTouchStart = useCallback(() => {
+    setIsTouch(true);
+    setIsHovered(true);
+    updateTransform();
+  }, [updateTransform]);
+
+  const handleTouchEnd = useCallback(() => {
+    setIsTouch(false);
     setIsHovered(false);
     setTransformValue(0);
   }, []);
@@ -58,10 +71,12 @@ export const AnimatedTitle = ({ children }: AnimatedTitleProps) => {
       className="group w-full overflow-hidden whitespace-nowrap after:content-[''] after:absolute after:top-0 after:right-0 after:w-full after:h-full"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       <span
         ref={textSpanRef}
-        className={`inline-block transition-transform ease-linear will-change-transform text-2xl h-9 relative font-bold whitespace-pre`}
+        className={`inline-block transition-transform ease-linear will-change-transform text-lg sm:text-xl md:text-2xl h-7 sm:h-8 md:h-9 relative font-bold whitespace-pre`}
         style={{
           transform: `translateX(${transformValue}px)`,
           transitionDuration: `${animationDuration}ms`,
@@ -69,7 +84,7 @@ export const AnimatedTitle = ({ children }: AnimatedTitleProps) => {
       >
         {children}
       </span>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-12 from-white via-white/80 to-transparent dark:from-gray-900 dark:via-gray-900/80" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-10 md:w-12 from-white via-white/80 to-transparent dark:from-gray-900 dark:via-gray-900/80" />
     </div>
   );
 };

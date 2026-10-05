@@ -9,10 +9,10 @@ export default function DefaultLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative max-w-[780px] m-auto flex flex-col h-screen">
+    <div className="relative flex flex-col min-h-dvh">
       <Head />
       <Header />
-      <main className="container mx-auto max-w-7xl px-6 flex-grow pt-16">
+      <main className="flex-grow w-full max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6 md:pt-8">
         {children}
       </main>
       <Footer />

@@ -5,10 +5,10 @@ import { IconSvgProps } from "@/types";
 export const Logo: React.FC = () => (
   <svg
     enableBackground="new 0 0 450 450"
-    height={60}
+    height="100%"
     version="1.1"
     viewBox="78.41 95.28 294.98 260.64"
-    width={60}
+    width="100%"
     x="0px"
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -54,9 +54,9 @@ export const Logo: React.FC = () => (
 
 export const LogoType: React.FC = () => (
   <svg
-    height="35.449"
+    height="100%"
     viewBox="0 0 246.797 35.449"
-    width="246.797"
+    width="100%"
     xmlns="http://www.w3.org/2000/svg"
   >
     <g fill="#fff" fillRule="evenodd" strokeLinecap="round" strokeWidth="0">
