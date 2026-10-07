@@ -18,10 +18,11 @@ export const AnimatedTitle = ({ children }: AnimatedTitleProps) => {
   const updateTransform = useCallback(() => {
     if (!containerRef.current || !textSpanRef.current) return;
 
-    const containerWidth = containerRef.current.clientWidth;
+    const containerWidth = containerRef.current.getBoundingClientRect().width;
     const fullTextWidth = textSpanRef.current.scrollWidth;
+    const glyphOverflow = fullTextWidth > containerWidth ? 8 : 0;
 
-    const offset = Math.min(0, containerWidth - fullTextWidth);
+    const offset = Math.min(0, containerWidth - fullTextWidth - glyphOverflow);
 
     setTransformValue(offset);
   }, []);
@@ -68,7 +69,7 @@ export const AnimatedTitle = ({ children }: AnimatedTitleProps) => {
   return (
     <div
       ref={containerRef}
-      className="group w-full overflow-hidden whitespace-nowrap after:content-[''] after:absolute after:top-0 after:right-0 after:w-full after:h-full"
+      className="group relative w-full overflow-hidden whitespace-nowrap after:content-[''] after:absolute after:top-0 after:right-0 after:w-full after:h-full"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onTouchStart={handleTouchStart}
@@ -76,7 +77,7 @@ export const AnimatedTitle = ({ children }: AnimatedTitleProps) => {
     >
       <span
         ref={textSpanRef}
-        className={`inline-block transition-transform ease-linear will-change-transform text-lg sm:text-xl md:text-2xl h-7 sm:h-8 md:h-9 relative font-bold whitespace-pre`}
+        className={`inline-block transition-transform ease-linear will-change-transform text-lg sm:text-xl md:text-2xl h-7 sm:h-8 md:h-9 relative font-bold whitespace-pre pr-1`}
         style={{
           transform: `translateX(${transformValue}px)`,
           transitionDuration: `${animationDuration}ms`,
@@ -84,7 +85,9 @@ export const AnimatedTitle = ({ children }: AnimatedTitleProps) => {
       >
         {children}
       </span>
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-10 md:w-12 from-white via-white/80 to-transparent dark:from-gray-900 dark:via-gray-900/80" />
+      {!isHovered && (
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-8 sm:w-10 md:w-12 bg-gradient-to-l from-gray-900 via-gray-900/80 to-transparent" />
+      )}
     </div>
   );
 };

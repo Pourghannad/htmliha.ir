@@ -34,7 +34,7 @@ export default function Card({
               />
             </div>
           )}
-          <div className="flex-col max-w-full p-3 sm:p-4">
+          <div className="flex min-w-0 flex-1 flex-col max-w-full p-3 sm:p-4">
             <AnimatedTitle>{title}</AnimatedTitle>
             <p className="text-xs sm:text-sm whitespace-normal mt-1 sm:mt-2 line-clamp-3 sm:line-clamp-4">
               {description.replace(/&#39;/g, "'").replace(/&amp;/g, "&")}
